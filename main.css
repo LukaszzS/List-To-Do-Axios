@@ -1,0 +1,171 @@
+body {
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke;
+}
+
+#container {
+    width: 96%;
+    margin: 0 auto;
+    background-image: url("img/water.jpg");
+    background-size: cover;
+    background-position: unset;
+}
+
+#myHeader.header h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    color: whitesmoke;
+}
+
+.header-add {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.header-add i {
+    padding-left: 10px;
+}
+
+#myHeader.header input {
+    border-top: solid transparent;
+    border-left: solid transparent;
+    border-bottom: 4px solid #6E2C00;
+    border-right: solid transparent;
+    background: transparent;
+    width: 60%;
+    height: 10%;
+    font-size: 22px;
+    color: whitesmoke;
+    letter-spacing: 2px;
+}
+
+#myHeader.header input:hover {
+    border-bottom: 4px solid #D35400;
+}
+
+#myHeader.header input:focus {
+    outline: 0;
+}
+
+#myHeader.header input::-webkit-input-placeholder {
+    color: #17202A;
+    font-size: 18px;
+}
+
+#myHeader.header input::-moz-placeholder {
+    color: #EDBB99;
+    font-size: 18px;
+}
+
+#myHeader.header input:-ms-input-placeholder {
+    color: #EDBB99;
+    font-size: 18px;
+}
+
+#myHeader.header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 10%;
+    border: 0;
+    height: 7%;
+    background: #81481E;
+    margin-right: 60px;
+    border-radius: 5px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    -webkit-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
+}
+
+#myHeader.header button:focus {
+    outline: 0;
+}
+
+#myHeader.header button:hover {
+    color: #81481E;
+    background: whitesmoke;
+}
+
+/*section --------------- list*/
+#list {
+    width: 80%;
+    margin: 30px auto 0 auto;
+
+
+    /*position: relative;*/
+}
+
+#list li {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    padding-left: 10px;
+}
+
+#list li:nth-child(even) {
+    background: #1C2833;
+    color: #808B96;
+}
+
+#list li:nth-child(odd) {
+    background: #808B96;
+    color: #1C2833;
+}
+
+/*popup*/
+#myModal .modal {
+    display: none;
+
+}
+
+#myModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #E53935;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 25%;
+    /*position: absolute;*/
+    /*top: 210px;*/
+
+}
+
+.modal-content {
+    margin: 20px;
+}
+
+#addForm input {
+    width:90%;
+}
+
+#addForm button {
+    width: 45%;
+    margin-top: 10px;
+}
+
+#addForm input:focus {
+    outline: 0;
+    color: darkred;
+}
+
+#addForm input::-webkit-input-placeholder {
+    color: #1C2833;
+    font-size: 16px;
+}
+
+#addForm input::-moz-placeholder {
+    color: #1C2833;
+    font-size: 16px;
+}
+
+#addForm input:-ms-input-placeholder {
+    color: #1C2833;
+    font-size: 16px;
+}
