@@ -1,6 +1,7 @@
 let list;
 let button;
 let myInput;
+let markAsDone;
 
 const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'coś'];
 
@@ -14,6 +15,7 @@ function searchForElements() {
     list = document.getElementById('list');
     button = document.getElementById('addTodo');
     myInput = document.getElementById('myInput');
+
 }
 
 function prepareInitialList() {
@@ -37,11 +39,7 @@ function addNewElementToList(todo) {
     textNodeClass.className = 'textNodeClass';
     textNodeClass.appendChild(textNode);
 
-    // textNode.document.createElement('div');
-    // textNode.className = 'textNodeClass';
-
     newElement.appendChild(textNodeClass);
-    // newElement.appendChild(textNode);
 
     let newBtnDelete = document.createElement('button');
     newBtnDelete.innerHTML = 'Delete';
@@ -53,6 +51,16 @@ function addNewElementToList(todo) {
     btnElementLi.appendChild(newBtnDelete);
     btnElementLi.appendChild(newBtnEdit);
     btnElementLi.appendChild(newBtnMark);
+
+    // newBtnMark.addEventListener('clisk', '#list') => document.getElementById(#list-inactive).className = 'done';
+    //
+
+
+    // markAsDone.addEventListener('click', (elementId) => document.getElementById(elementId).className = 'done')
+
+    // markAsDone.addEventListener('click', (#list)=> document.getElementById(#list-inactive).className = 'done');
+
+
 
     newElement.appendChild(btnElementLi);
 
