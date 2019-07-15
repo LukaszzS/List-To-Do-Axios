@@ -8,7 +8,8 @@ body {
     margin: 0 auto;
     background-image: url("img/water.jpg");
     background-size: cover;
-    background-position: unset;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #myHeader.header h1 {
@@ -78,6 +79,7 @@ body {
     border-radius: 5px;
     font-size: 18px;
     letter-spacing: 2px;
+    cursor: pointer;
     -webkit-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
@@ -129,9 +131,9 @@ body {
     justify-content: center;
     align-items: center;
     background: #E53935;
-    width: 50%;
+    width: 30%;
     margin-top: 10px;
-    margin-left: 25%;
+    /*margin-left: 25%;*/
     /*position: absolute;*/
     /*top: 210px;*/
 
@@ -148,6 +150,7 @@ body {
 #addForm button {
     width: 45%;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 #addForm input:focus {
