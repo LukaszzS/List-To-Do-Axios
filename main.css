@@ -6,6 +6,7 @@ body {
 #container {
     width: 96%;
     margin: 0 auto;
+    height: 100vh;
     background-image: url("img/water.jpg");
     background-size: cover;
     background-position: center;
@@ -21,13 +22,14 @@ body {
 
 .header-add {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     margin-top: 30px;
 }
 
 .header-add i {
     padding-left: 10px;
+    margin-right: 5px;
 }
 
 #myHeader.header input {
@@ -79,7 +81,6 @@ body {
     border-radius: 5px;
     font-size: 18px;
     letter-spacing: 2px;
-    cursor: pointer;
     -webkit-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
@@ -98,9 +99,6 @@ body {
 #list {
     width: 80%;
     margin: 30px auto 0 auto;
-
-
-    /*position: relative;*/
 }
 
 #list li {
@@ -120,31 +118,32 @@ body {
     color: #1C2833;
 }
 
-/*popup*/
-#myModal .modal {
-    display: none;
 
-}
+/*popup*/
+
 
 #myModal {
-    display: flex;
+
+    display: none;
+
     justify-content: center;
     align-items: center;
-    background: #E53935;
-    width: 30%;
-    margin-top: 10px;
-    /*margin-left: 25%;*/
-    /*position: absolute;*/
-    /*top: 210px;*/
-
-}
-
-.modal-content {
-    margin: 20px;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #1C2833;
+    background-image: url("img/w1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #addForm input {
-    width:90%;
+    width: 90%;
 }
 
 #addForm button {
@@ -171,4 +170,25 @@ body {
 #addForm input:-ms-input-placeholder {
     color: #1C2833;
     font-size: 16px;
+}
+
+
+@media screen and (min-width: 768px) {
+    #myModal {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #myHeader.header button {
+        cursor: pointer;
+    }
+
+    #addForm button {
+        cursor: pointer;
+    }
+
+    #myModal {
+        top: 42%;
+    }
 }
