@@ -107,12 +107,16 @@ body {
     height: 5vh;
     padding-left: 10px;
 }
+.btnElementLi {
+    border: 1px dashed orangered;
+}
+.textNodeClass{
+    border: 1px solid red;
+}
 
 #list li:nth-child(even) {
     background: #1C2833;
     color: #808B96;
-
-
 }
 
 #list li:nth-child(odd) {
@@ -123,14 +127,14 @@ body {
 /*list - markElementAsDone*/
 
 
-#list li.checked:nth-child(even) {
+#list-inactive li:nth-child(even) {
     background: #1C2833;
     color: #808B96;
     text-decoration: line-through;
     text-decoration-color: red;
 }
 
-#list li.checked:nth-child(odd) {
+#list-inactive li:nth-child(odd) {
     background: #808B96;
     color: #1C2833;
     text-decoration: line-through;
@@ -215,8 +219,3 @@ body {
 }
 
 
-.btnElementLi {
-    border: 1px dashed orangered;
-
-
-}

@@ -2,7 +2,7 @@ let list;
 let button;
 let myInput;
 
-const initialList = ['opłacić rachunki' , 'ortopeda - wizyta', 'coś'];
+const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'coś'];
 
 function main() {
     searchForElements();
@@ -11,32 +11,31 @@ function main() {
 }
 
 function searchForElements() {
-    list = document.getElementById("list");
+    list = document.getElementById('list');
     button = document.getElementById('addTodo');
     myInput = document.getElementById('myInput');
-
-};
+}
 
 function prepareInitialList() {
     initialList.forEach(todo => {
         addNewElementToList(todo);
-    })
+    });
 }
 
 function prepareDOMEvents() {
     button.addEventListener('click', addNewElementToList);
 }
 
-function addNewElementToList() {
+function addNewElementToList(todo) {
     let btnElementLi = document.createElement('div');
     btnElementLi.className = 'btnElementLi';
 
     let newElement = document.createElement('li');
-    let textNode = document.createTextNode(myInput.value);
+    let textNode = document.createTextNode(myInput.value || todo);
 
     let textNodeClass = document.createElement('div');
-    textNodeClass.className ='textNodeClass';
-
+    textNodeClass.className = 'textNodeClass';
+    textNodeClass.appendChild(textNode);
 
     // textNode.document.createElement('div');
     // textNode.className = 'textNodeClass';
@@ -55,12 +54,9 @@ function addNewElementToList() {
     btnElementLi.appendChild(newBtnEdit);
     btnElementLi.appendChild(newBtnMark);
 
-    newElement.appendChild(btnElementLi)
+    newElement.appendChild(btnElementLi);
 
     list.appendChild(newElement);
-
-
 }
-
 
 document.addEventListener('DOMContentLoaded', main);
