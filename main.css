@@ -111,12 +111,33 @@ body {
 #list li:nth-child(even) {
     background: #1C2833;
     color: #808B96;
+
+
 }
 
 #list li:nth-child(odd) {
     background: #808B96;
     color: #1C2833;
 }
+
+/*list - markElementAsDone*/
+
+
+#list li.checked:nth-child(even) {
+    background: #1C2833;
+    color: #808B96;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+#list li.checked:nth-child(odd) {
+    background: #808B96;
+    color: #1C2833;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+
 
 
 /*popup*/
@@ -191,4 +212,11 @@ body {
     #myModal {
         top: 42%;
     }
+}
+
+
+.btnElementLi {
+    border: 1px dashed orangered;
+
+
 }

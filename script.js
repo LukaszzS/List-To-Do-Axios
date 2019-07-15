@@ -1,59 +1,58 @@
-var button;
-var list;
-var myInput;
+let list;
+let button;
+let myInput;
+
+const initialList = ['opłacić rachunki , ortopeda - wizyta'];
 
 function main() {
-    searcForElements();
+    searchForElements();
     prepareDOMEvents();
-    // removeNewElementList();
+    prepareInitialList();
 }
 
-function searcForElements() {
+function searchForElements() {
     list = document.getElementById("list");
     button = document.getElementById('addTodo');
-    myInput = document.getElementById('myInput');  /* bez volue - wyświetla komunikat [object HTMLInputElement] a z volue - nic nie wyświetla tylko btn*/
+    myInput = document.getElementById('myInput');
 
 };
 
+function prepareInitialList() {
+    initialList.forEach(todo => {
+        addNewElementToList(todo);
+    })
+}
+
 function prepareDOMEvents() {
     button.addEventListener('click', addNewElementToList);
-
-
-
 }
 
 function addNewElementToList() {
-    var newElement = document.createElement('li');
-    var textNode = document.createTextNode(myInput);
+    let btnElementLi = document.createElement('div');
+    btnElementLi.className = 'btnElementLi';
 
+    let newElement = document.createElement('li');
+    let textNode = document.createTextNode(myInput.value);
 
-    // newElement.innerText = 'nowy element';
     newElement.appendChild(textNode);
 
-    var newBtnDelete = document.createElement('button');
-    newBtnDelete.innerHTML = '<div>Delete</div>';
+    let newBtnDelete = document.createElement('button');
+    newBtnDelete.innerHTML = 'Delete';
+    let newBtnEdit = document.createElement('button');
+    newBtnEdit.innerHTML = 'Edit';
+    let newBtnMark = document.createElement('button');
+    newBtnMark.innerHTML = 'Mark as Done';
 
-    var newBtnEdit = document.createElement('button');
-    newBtnEdit.innerHTML = '<div>Edit</div>';
+    btnElementLi.appendChild(newBtnDelete);
+    btnElementLi.appendChild(newBtnEdit);
+    btnElementLi.appendChild(newBtnMark);
 
-    var newBtnMark = document.createElement('button');
-    newBtnMark.innerHTML = '<div>Mark as Done</div>';
-
-
-    newElement.appendChild(newBtnDelete);
-    newElement.appendChild(newBtnEdit);
-    newElement.appendChild(newBtnMark);
-
-    // newElement.style.display.flex.justifyContent = 'center';
+    newElement.appendChild(btnElementLi)
 
     list.appendChild(newElement);
 
 
 }
-// function removeNewElementList() {
-//     newBtnDelete.addEventListener('click', removeNewElementList);
-//
-// }
 
 
 document.addEventListener('DOMContentLoaded', main);
