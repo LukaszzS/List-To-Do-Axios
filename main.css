@@ -122,18 +122,14 @@ body {
 /*list - markElementAsDone*/
 
 
-#list-inactive li:nth-child(even) {
-    background: #1C2833;
-    color: #808B96;
+.done:nth-child(even) {
     text-decoration: line-through;
-    text-decoration-color: red;
+    text-decoration-color: #FF5722;
 }
 
-#list-inactive li:nth-child(odd) {
-    background: #808B96;
-    color: #1C2833;
+.done:nth-child(odd) {
     text-decoration: line-through;
-    text-decoration-color: red;
+    text-decoration-color: #EF6C00;
 }
 
 
@@ -141,9 +137,7 @@ body {
 
 
 #myModal {
-
     display: none;
-
     justify-content: center;
     align-items: center;
     width: 50%;

@@ -1,9 +1,9 @@
-let list;
-let button;
-let myInput;
-let markAsDone;
+let list, button, myInput;
+// let button;
+// let myInput;
+// let markAsDone;
 
-const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'coś'];
+const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'cos - działa ? '];
 
 function main() {
     searchForElements();
@@ -52,14 +52,8 @@ function addNewElementToList(todo) {
     btnElementLi.appendChild(newBtnEdit);
     btnElementLi.appendChild(newBtnMark);
 
-    // newBtnMark.addEventListener('clisk', '#list') => document.getElementById(#list-inactive).className = 'done';
-    //
-
-
-    // markAsDone.addEventListener('click', (elementId) => document.getElementById(elementId).className = 'done')
-
-    // markAsDone.addEventListener('click', (#list)=> document.getElementById(#list-inactive).className = 'done');
-
+    newBtnMark.addEventListener('click',() => (newBtnMark.parentElement.parentElement.className = 'done')
+    );
 
 
     newElement.appendChild(btnElementLi);
