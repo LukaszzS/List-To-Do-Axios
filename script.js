@@ -2,7 +2,7 @@ let list;
 let button;
 let myInput;
 
-const initialList = ['opłacić rachunki , ortopeda - wizyta'];
+const initialList = ['opłacić rachunki' , 'ortopeda - wizyta', 'coś'];
 
 function main() {
     searchForElements();
@@ -34,7 +34,15 @@ function addNewElementToList() {
     let newElement = document.createElement('li');
     let textNode = document.createTextNode(myInput.value);
 
-    newElement.appendChild(textNode);
+    let textNodeClass = document.createElement('div');
+    textNodeClass.className ='textNodeClass';
+
+
+    // textNode.document.createElement('div');
+    // textNode.className = 'textNodeClass';
+
+    newElement.appendChild(textNodeClass);
+    // newElement.appendChild(textNode);
 
     let newBtnDelete = document.createElement('button');
     newBtnDelete.innerHTML = 'Delete';
