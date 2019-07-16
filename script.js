@@ -1,13 +1,11 @@
-let list, button, myInput, myModal;
-
+let list, button, myInput, myModal, popupInput;
+let index = 0;
 const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'cos - działa ? '];
 
 function main() {
     searchForElements();
     prepareDOMEvents();
     prepareInitialList();
-    openPopup();
-    // closePopup();
 }
 
 function searchForElements() {
@@ -15,14 +13,13 @@ function searchForElements() {
     button = document.getElementById('addTodo');
     myInput = document.getElementById('myInput');
     myModal = document.getElementById('myModal');
-
+    popupInput = document.getElementById('popupInput');
 }
 
 function prepareDOMEvents() {
-    button.addEventListener('click', addNewElementToList);
+    button.addEventListener('click', toggleElementClick);
     list.addEventListener('click', listClickManager);
 }
-
 
 function prepareInitialList() {
     initialList.forEach(todo => {
@@ -30,19 +27,31 @@ function prepareInitialList() {
     });
 }
 
+function toggleElementClick() {
+    if (myInput.value.trim()) {
+        addNewElementToList(myInput.value);
+    }
+}
 
 function addNewElementToList(todo) {
     let btnElementLi = document.createElement('div');
     btnElementLi.className = 'btnElementLi';
 
     let newElement = document.createElement('li');
-    let textNode = document.createTextNode(myInput.value || todo);
+    newElement.id = 'todo' + ++index;
+
+    let textNode = document.createTextNode(todo);
     let textNodeClass = document.createElement('div');
     textNodeClass.className = 'textNodeClass';
     textNodeClass.appendChild(textNode);
 
     newElement.appendChild(textNodeClass);
+    createButtons(btnElementLi);
+    newElement.appendChild(btnElementLi);
+    list.appendChild(newElement);
+}
 
+function createButtons(btnElementLi) {
     let newBtnDelete = document.createElement('button');
     newBtnDelete.id = 'newBtnDelete';
     newBtnDelete.innerHTML = 'Delete';
@@ -59,18 +68,16 @@ function addNewElementToList(todo) {
     btnElementLi.appendChild(newBtnEdit);
     btnElementLi.appendChild(newBtnMark);
 
-    // newBtnMark.addEventListener('click',() => (newBtnMark.parentElement.parentElement.className = 'done')
-    // );
-    newElement.appendChild(btnElementLi);
-    list.appendChild(newElement);
 }
 
 function listClickManager(eventObject) {
     if (eventObject.target.id === 'newBtnEdit') {
         console.log("kliknołeś edit")
+        openPopup();
+        editListElement(eventObject.target.parentNode.parentNode.id);
     } else if (eventObject.target.id === 'newBtnDelete') {
         console.log('kliknąłeś Delete')
-        // eventObject.target.remove('newElement');
+        removeListElement(eventObject.target.parentNode.parentNode.id);
     } else if (eventObject.target.id === 'newBtnMark') {
         console.log('kliknąłeś Mark')
     } else {
@@ -78,27 +85,24 @@ function listClickManager(eventObject) {
     }
 
 }
-//pomoc
-function removeListElement(/* id */) {
+
+function removeListElement(id) {
     // Usuwanie elementu z listy
+    list.removeChild(document.querySelector('#' + id));
 }
 
-//pomoc
-function editListElement(/* id */) {
+function editListElement(id) {
     // Pobranie informacji na temat zadania
     // Umieść dane w popupie
+    let todo = document.querySelector('#' + id + ' .textNodeClass');
+    popupInput.value = todo.innerText;
 }
 
-
-
-
-//pomoc
 function openPopup() {
     // Otwórz popup
-    // if(eventObject.target.id === 'newBtnDelete'){}
-        myModal.style.display = "none";
-
+    myModal.style.display = "block";
 }
+
 //pomoc
 function closePopup() {
     // Zamknij popup
