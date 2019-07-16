@@ -106,8 +106,27 @@ body {
     align-items: center;
     justify-content: space-between;
     height: 5vh;
-    padding:0 10px;
+    padding: 0 10px;
 }
+
+li .btnElementLi button {
+    font-size: 8px;
+    margin-bottom: 4px;
+    margin-left: 2px;
+}
+
+li .btnElementLi #newBtnDelete {
+    width: 35px;
+}
+
+li .btnElementLi #newBtnEdit {
+    width: 25px;
+}
+
+li .btnElementLi #newBtnMark {
+    width: 66px;
+}
+
 
 #list li:nth-child(even) {
     background: #1C2833;
@@ -120,8 +139,6 @@ body {
 }
 
 /*list - markElementAsDone*/
-
-
 .done:nth-child(even) {
     text-decoration: line-through;
     text-decoration-color: #FF5722;
@@ -134,8 +151,6 @@ body {
 
 
 /*popup*/
-
-
 #myModal {
     display: none;
     justify-content: center;

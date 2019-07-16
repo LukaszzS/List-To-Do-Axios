@@ -1,6 +1,4 @@
 let list, button, myInput;
-// let button;
-// let myInput;
 // let markAsDone;
 
 const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'cos - działa ? '];
@@ -34,7 +32,6 @@ function addNewElementToList(todo) {
 
     let newElement = document.createElement('li');
     let textNode = document.createTextNode(myInput.value || todo);
-
     let textNodeClass = document.createElement('div');
     textNodeClass.className = 'textNodeClass';
     textNodeClass.appendChild(textNode);
@@ -42,10 +39,15 @@ function addNewElementToList(todo) {
     newElement.appendChild(textNodeClass);
 
     let newBtnDelete = document.createElement('button');
+    newBtnDelete.id = 'newBtnDelete';
     newBtnDelete.innerHTML = 'Delete';
+
     let newBtnEdit = document.createElement('button');
+    newBtnEdit.id = 'newBtnEdit';
     newBtnEdit.innerHTML = 'Edit';
+
     let newBtnMark = document.createElement('button');
+    newBtnMark.id = 'newBtnMark';
     newBtnMark.innerHTML = 'Mark as Done';
 
     btnElementLi.appendChild(newBtnDelete);
