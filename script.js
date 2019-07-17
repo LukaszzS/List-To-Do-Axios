@@ -1,4 +1,4 @@
-let list, button, myInput, myModal, popupInput;
+let list, button, myInput, myModal, popupInput, closePopup;
 let index = 0;
 const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'cos - działa ? '];
 
@@ -14,11 +14,13 @@ function searchForElements() {
     myInput = document.getElementById('myInput');
     myModal = document.getElementById('myModal');
     popupInput = document.getElementById('popupInput');
+    closePopup = document.getElementById('closePopup');
 }
 
 function prepareDOMEvents() {
     button.addEventListener('click', toggleElementClick);
     list.addEventListener('click', listClickManager);
+    myModal.addEventListener('click', myModalClickManager);
 }
 
 function prepareInitialList() {
@@ -72,40 +74,50 @@ function createButtons(btnElementLi) {
 
 function listClickManager(eventObject) {
     if (eventObject.target.id === 'newBtnEdit') {
-        console.log("kliknołeś edit")
         openPopup();
         editListElement(eventObject.target.parentNode.parentNode.id);
     } else if (eventObject.target.id === 'newBtnDelete') {
-        console.log('kliknąłeś Delete')
         removeListElement(eventObject.target.parentNode.parentNode.id);
     } else if (eventObject.target.id === 'newBtnMark') {
-        console.log('kliknąłeś Mark')
-    } else {
-        console.log("klik klik el li")
+        markElementAsDone()
     }
 
 }
 
 function removeListElement(id) {
-    // Usuwanie elementu z listy
     list.removeChild(document.querySelector('#' + id));
 }
 
 function editListElement(id) {
-    // Pobranie informacji na temat zadania
-    // Umieść dane w popupie
     let todo = document.querySelector('#' + id + ' .textNodeClass');
     popupInput.value = todo.innerText;
 }
 
+function myModalClickManager(eventObject) {
+    console.log(eventObject.target);
+    if (eventObject.target.id === 'closePopup') {
+        closePPopup();
+    } else if (eventObject.target.id === 'btn_cancel') {
+        closePPopup();
+    } else if (eventObject.target.id === 'btn_done') {
+        console.log('klik done');
+    }
+
+}
+
 function openPopup() {
-    // Otwórz popup
     myModal.style.display = "block";
 }
 
-//pomoc
-function closePopup() {
-    // Zamknij popup
+function closePPopup() {
+    myModal.style.display = "none";
+}
+
+// function markElementAsDone(/* id */) {
+function markElementAsDone(newBtnMark) {
+    //zaznacz element jako wykonany (podmień klasę CSS)
+    newBtnMark.classList.add(".done");
+
 }
 
 document.addEventListener('DOMContentLoaded', main);
