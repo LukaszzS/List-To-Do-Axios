@@ -73,7 +73,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 10%;
+    min-width: 10%;
     border: 0;
     height: 7%;
     background: #81481E;
@@ -115,8 +115,7 @@ body {
 }
 
 li .btnElementLi button {
-    font-size: 8px;
-    margin-bottom: 4px;
+    font-size: 12px;
     margin-left: 2px;
     background: #B9DFF6;
     border-radius: 3px;
@@ -126,16 +125,16 @@ li .btnElementLi button {
 }
 
 li .btnElementLi #newBtnDelete {
-    width: 35px;
+    width: 50px;
 
 }
 
 li .btnElementLi #newBtnEdit {
-    width: 25px;
+    width: 35px;
 }
 
 li .btnElementLi #newBtnMark {
-    width: 66px;
+    width: 87px;
 }
 
 
@@ -236,20 +235,20 @@ li .btnElementLi #newBtnMark {
     }
 
     li .btnElementLi button {
-        font-size: 12px;
+        font-size: 16px;
 
     }
 
     li .btnElementLi #newBtnDelete {
-        width: 50px;
+        width: 60px;
     }
 
     li .btnElementLi #newBtnEdit {
-        width: 45px;
+        width: 50px;
     }
 
     li .btnElementLi #newBtnMark {
-        width: 90px;
+        width: 115px;
     }
 }
 

@@ -100,9 +100,17 @@ function myModalClickManager(eventObject) {
     } else if (eventObject.target.id === 'btn_cancel') {
         closePPopup();
     } else if (eventObject.target.id === 'btn_done') {
+        acceptChangeHandler()
         console.log('klik done');
     }
 
+}
+
+function acceptChangeHandler() {
+    // pobierz dane na temat zadania z popupu (id, nowyTitle, nowyColor ...)
+    // Następnie zmodyfikuj element listy wrzucając w niego nowyTitle, nowyColor...
+    // closePopup()
+    popupInput.value
 }
 
 function openPopup() {
