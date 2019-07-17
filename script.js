@@ -1,6 +1,6 @@
 let list, button, myInput, myModal, popupInput, closePopup;
 let index = 0;
-const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'cos - działa ? '];
+const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'karnet - siłownia '];
 
 function main() {
     searchForElements();
@@ -79,7 +79,7 @@ function listClickManager(eventObject) {
     } else if (eventObject.target.id === 'newBtnDelete') {
         removeListElement(eventObject.target.parentNode.parentNode.id);
     } else if (eventObject.target.id === 'newBtnMark') {
-        markElementAsDone()
+        markElementAsDone(textNodeClass)
     }
 
 }
@@ -114,9 +114,9 @@ function closePPopup() {
 }
 
 // function markElementAsDone(/* id */) {
-function markElementAsDone(newBtnMark) {
+function markElementAsDone() {
     //zaznacz element jako wykonany (podmień klasę CSS)
-    newBtnMark.classList.add(".done");
+    newBtnMark.classList.add("done");
 
 }
 

@@ -35,7 +35,7 @@ body {
 #myHeader.header input {
     border-top: solid transparent;
     border-left: solid transparent;
-    border-bottom: 4px solid #6E2C00;
+    border-bottom: 4px solid #D35400;
     border-right: solid transparent;
     background: transparent;
     width: 60%;
@@ -46,7 +46,7 @@ body {
 }
 
 #myHeader.header input:hover {
-    border-bottom: 4px solid #D35400;
+    border-bottom: 4px solid #6E2C00;
 }
 
 #myHeader.header input:focus {
@@ -54,7 +54,7 @@ body {
 }
 
 #myHeader.header input::-webkit-input-placeholder {
-    color: #17202A;
+    color: #EDBB99;
     font-size: 18px;
 }
 
@@ -107,16 +107,27 @@ body {
     justify-content: space-between;
     min-height: 5vh;
     padding: 0 10px;
+    margin-top: 3px;
+    -webkit-box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
+    -moz-box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
+    box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
+
 }
 
 li .btnElementLi button {
     font-size: 8px;
     margin-bottom: 4px;
     margin-left: 2px;
+    background: #B9DFF6;
+    border-radius: 3px;
+    border: none;
+    color: #1C2833;
+
 }
 
 li .btnElementLi #newBtnDelete {
     width: 35px;
+
 }
 
 li .btnElementLi #newBtnEdit {
@@ -162,11 +173,16 @@ li .btnElementLi #newBtnMark {
     transform: translate(-50%, -50%);
     padding: 20px;
     border-radius: 10px;
-    border: 1px solid #1C2833;
-    background-image: url("img/w1.jpg");
+    border: 1px solid #B9DFF6;
+    background-image: url("img/antracyt.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+#addForm {
+    text-align: center;
+
 }
 
 #addForm input {
@@ -177,6 +193,11 @@ li .btnElementLi #newBtnMark {
     width: 45%;
     margin-top: 10px;
     cursor: pointer;
+    background: #B9DFF6;
+    border-radius: 3px;
+    border: none;
+    color: #1C2833;
+
 }
 
 #addForm input:focus {
@@ -209,11 +230,26 @@ li .btnElementLi #newBtnMark {
 }
 
 
-
-
 @media screen and (min-width: 768px) {
     #myModal {
         width: 40%;
+    }
+
+    li .btnElementLi button {
+        font-size: 12px;
+
+    }
+
+    li .btnElementLi #newBtnDelete {
+        width: 50px;
+    }
+
+    li .btnElementLi #newBtnEdit {
+        width: 45px;
+    }
+
+    li .btnElementLi #newBtnMark {
+        width: 90px;
     }
 }
 
@@ -228,6 +264,23 @@ li .btnElementLi #newBtnMark {
 
     #myModal {
         top: 42%;
+    }
+
+    li .btnElementLi button:hover {
+        background: white;
+        color: black;
+        cursor: pointer;
+    }
+
+    #addForm button:hover {
+        background: white;
+        color: black;
+        cursor: pointer;
+
+    }
+
+    .modal-content .close {
+        cursor: pointer;
     }
 }
 
