@@ -137,34 +137,20 @@ li .btnElementLi #newBtnMark {
 
 
 #list li:nth-child(even) {
-    background: #1C2833;
+    background: #212F3C;
     color: #808B96;
 }
 
 #list li:nth-child(odd) {
     background: #808B96;
-    color: #1C2833;
+    color: #212F3C;
 }
 
-/*#list li.done{*/
-/*    color:red;*/
-/*}*/
-
-
-/*list - markElementAsDone*/
-#list li.done:nth-child(even) {
+#list li.done {
     text-decoration: line-through;
     text-decoration-color: #FF3333;
     color: #ECF0F1;
-    background: #626567;
-    opacity: 0.95;
-}
-
-#list li.done:nth-child(odd) {
-    text-decoration: line-through;
-    text-decoration-color: #FF3333;
-    color: #ECF0F1;
-    background: #B3B6B7;
+    background: #CCD1D1;
     opacity: 0.95;
 }
 

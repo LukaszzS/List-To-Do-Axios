@@ -70,7 +70,6 @@ function createButtons(btnElementLi) {
     btnElementLi.appendChild(newBtnDelete);
     btnElementLi.appendChild(newBtnEdit);
     btnElementLi.appendChild(newBtnMark);
-
 }
 
 function listClickManager(eventObject) {
@@ -104,12 +103,9 @@ function myModalClickManager(eventObject) {
         acceptChangeHandler();
         console.log('klik done');
     }
-
 }
 
 function acceptChangeHandler() {
-    // pobierz dane na temat zadania z popupu (id, nowyTitle, nowyColor ...)
-    // Następnie zmodyfikuj element listy wrzucając w niego nowyTitle, nowyColor...
     let todo = document.querySelector('#' + currentTodo + ' .textNodeClass');
     todo.innerText = popupInput.value;
     closePopup();
@@ -129,5 +125,6 @@ function markElementAsDone(id) {
     newBtnMark.classList.add("done");
 
 }
+
 document.addEventListener('DOMContentLoaded', main);
 
