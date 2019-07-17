@@ -6,8 +6,8 @@ body {
 #container {
     width: 96%;
     margin: 0 auto;
-    height: 100vh;
-    background-image: url("img/water.jpg");
+    min-height: 100vh;
+    background-image: url("../img/water.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,6 +30,7 @@ body {
 .header-add i {
     padding-left: 10px;
     margin-right: 5px;
+    color: #81481E;
 }
 
 #myHeader.header input {
@@ -54,17 +55,17 @@ body {
 }
 
 #myHeader.header input::-webkit-input-placeholder {
-    color: #EDBB99;
+    color: #81481E;
     font-size: 18px;
 }
 
 #myHeader.header input::-moz-placeholder {
-    color: #EDBB99;
+    color: #5FA6D6;
     font-size: 18px;
 }
 
 #myHeader.header input:-ms-input-placeholder {
-    color: #EDBB99;
+    color: #5FA6D6;
     font-size: 18px;
 }
 
@@ -111,7 +112,6 @@ body {
     -webkit-box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
     -moz-box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
     box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
-
 }
 
 li .btnElementLi button {
@@ -121,12 +121,10 @@ li .btnElementLi button {
     border-radius: 3px;
     border: none;
     color: #1C2833;
-
 }
 
 li .btnElementLi #newBtnDelete {
     width: 50px;
-
 }
 
 li .btnElementLi #newBtnEdit {
@@ -148,23 +146,34 @@ li .btnElementLi #newBtnMark {
     color: #1C2833;
 }
 
+/*#list li.done{*/
+/*    color:red;*/
+/*}*/
+
+
 /*list - markElementAsDone*/
-.done:nth-child(even) {
+#list li.done:nth-child(even) {
     text-decoration: line-through;
-    text-decoration-color: #FF5722;
+    text-decoration-color: #FF3333;
+    color: #ECF0F1;
+    background: #626567;
+    opacity: 0.95;
 }
 
-.done:nth-child(odd) {
+#list li.done:nth-child(odd) {
     text-decoration: line-through;
-    text-decoration-color: #EF6C00;
+    text-decoration-color: #FF3333;
+    color: #ECF0F1;
+    background: #B3B6B7;
+    opacity: 0.95;
 }
-
 
 /*popup*/
 #myModal {
     display: none;
-    justify-content: center;
-    align-items: center;
+}
+
+.modal {
     width: 50%;
     position: absolute;
     left: 50%;
@@ -173,7 +182,7 @@ li .btnElementLi #newBtnMark {
     padding: 20px;
     border-radius: 10px;
     border: 1px solid #B9DFF6;
-    background-image: url("img/antracyt.jpeg");
+    background-image: url("../img/antracyt.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -181,7 +190,6 @@ li .btnElementLi #newBtnMark {
 
 #addForm {
     text-align: center;
-
 }
 
 #addForm input {
@@ -196,7 +204,6 @@ li .btnElementLi #newBtnMark {
     border-radius: 3px;
     border: none;
     color: #1C2833;
-
 }
 
 #addForm input:focus {
@@ -236,7 +243,6 @@ li .btnElementLi #newBtnMark {
 
     li .btnElementLi button {
         font-size: 16px;
-
     }
 
     li .btnElementLi #newBtnDelete {
@@ -250,6 +256,7 @@ li .btnElementLi #newBtnMark {
     li .btnElementLi #newBtnMark {
         width: 115px;
     }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -275,7 +282,6 @@ li .btnElementLi #newBtnMark {
         background: white;
         color: black;
         cursor: pointer;
-
     }
 
     .modal-content .close {

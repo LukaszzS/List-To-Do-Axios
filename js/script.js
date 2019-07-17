@@ -1,5 +1,6 @@
-let list, button, myInput, myModal, popupInput, closePopup;
+let list, button, myInput, myModal, popupInput, closeBtn;
 let index = 0;
+let currentTodo = 0;
 const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'karnet - siłownia '];
 
 function main() {
@@ -14,7 +15,7 @@ function searchForElements() {
     myInput = document.getElementById('myInput');
     myModal = document.getElementById('myModal');
     popupInput = document.getElementById('popupInput');
-    closePopup = document.getElementById('closePopup');
+    closeBtn = document.getElementById('closeBtn');
 }
 
 function prepareDOMEvents() {
@@ -79,9 +80,8 @@ function listClickManager(eventObject) {
     } else if (eventObject.target.id === 'newBtnDelete') {
         removeListElement(eventObject.target.parentNode.parentNode.id);
     } else if (eventObject.target.id === 'newBtnMark') {
-        markElementAsDone(textNodeClass)
+        markElementAsDone(eventObject.target.parentNode.parentNode.id)
     }
-
 }
 
 function removeListElement(id) {
@@ -91,16 +91,17 @@ function removeListElement(id) {
 function editListElement(id) {
     let todo = document.querySelector('#' + id + ' .textNodeClass');
     popupInput.value = todo.innerText;
+    currentTodo = id;
 }
 
 function myModalClickManager(eventObject) {
     console.log(eventObject.target);
-    if (eventObject.target.id === 'closePopup') {
-        closePPopup();
+    if (eventObject.target.id === 'closeBtn') {
+        closePopup();
     } else if (eventObject.target.id === 'btn_cancel') {
-        closePPopup();
+        closePopup();
     } else if (eventObject.target.id === 'btn_done') {
-        acceptChangeHandler()
+        acceptChangeHandler();
         console.log('klik done');
     }
 
@@ -109,23 +110,24 @@ function myModalClickManager(eventObject) {
 function acceptChangeHandler() {
     // pobierz dane na temat zadania z popupu (id, nowyTitle, nowyColor ...)
     // Następnie zmodyfikuj element listy wrzucając w niego nowyTitle, nowyColor...
-    // closePopup()
-    popupInput.value
+    let todo = document.querySelector('#' + currentTodo + ' .textNodeClass');
+    todo.innerText = popupInput.value;
+    closePopup();
 }
 
 function openPopup() {
     myModal.style.display = "block";
 }
 
-function closePPopup() {
+function closePopup() {
     myModal.style.display = "none";
+    popupInput.value = '';
 }
 
-// function markElementAsDone(/* id */) {
-function markElementAsDone() {
-    //zaznacz element jako wykonany (podmień klasę CSS)
+function markElementAsDone(id) {
+    let newBtnMark = document.getElementById(id);
     newBtnMark.classList.add("done");
 
 }
-
 document.addEventListener('DOMContentLoaded', main);
+

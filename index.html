@@ -7,42 +7,23 @@
     <title>Projekt zaliczeniowy nr 2 To DO list</title>
     <link rel="stylesheet" href="style/reset.css">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="icons/fontawesome-free-5.8.2-web/css/all.css">
-
-
 </head>
-
 <body id="container">
-
-
-<!--<script src="../../../../Zadanie - PROJEKT JS/ToDo-GitMaciej-WSTĘP/ToDo-Schema/script.js"></script>-->
-
-
-
 <div id="myHeader" class="header">
-    <h1>My To Do List</h1>
+    <h1>Things To Do</h1>
     <div class="header-add">
-        <i class="fas fa-pencil-alt"></i><input type="text" id="myInput" placeholder="add task...">
+        <i class="fas fa-pencil-alt"></i><input type="text" id="myInput" placeholder="new task to do... ">
         <button id="addTodo" class="addBtn">Add</button>
     </div>
 </div>
-
-
-<ul id="list">
-
-<!--    <li> Hit the gym</li>-->
-<!--    <li class="checked"> Pay Bils</li>-->
-<!--    <li>Meet George</li>-->
-<!--    <li>Buy eggs</li>-->
-<!--    <li>Organize office</li>-->
-
-</ul>
+<ul id="list"></ul>
 
 <div id="myModal" class="modal">
     <!--Modal content-->
     <div class="modal-content">
-        <span id="closePopup" class="close">X</span>
+        <span id="closeBtn" class="close">X</span>
         <div id="addForm" class="header">
             <input type="text" id="popupInput" placeholder="Title...">
             <button id="btn_cancel" class="addBtn">CANCEL</button>
@@ -50,7 +31,6 @@
         </div>
     </div>
 </div>
-
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
