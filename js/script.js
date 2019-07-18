@@ -62,7 +62,7 @@ function createButtons(btnElementLi) {
     let newBtnEdit = document.createElement('button');
     newBtnEdit.id = 'newBtnEdit';
     newBtnEdit.innerHTML = 'Edit';
-
+    // <i class="fas fa-check-circle"></i>';
     let newBtnMark = document.createElement('button');
     newBtnMark.id = 'newBtnMark';
     newBtnMark.innerHTML = 'Mark as Done';
@@ -122,7 +122,7 @@ function closePopup() {
 
 function markElementAsDone(id) {
     let newBtnMark = document.getElementById(id);
-    newBtnMark.classList.add("done");
+    newBtnMark.classList.toggle("done");
 
 }
 

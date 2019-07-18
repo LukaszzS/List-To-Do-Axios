@@ -85,6 +85,8 @@ body {
     -webkit-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
+
+    overflow:hidden;
 }
 
 #myHeader.header button:focus {
@@ -173,6 +175,13 @@ li .btnElementLi #newBtnMark {
     background-position: center;
     background-repeat: no-repeat;
 }
+.modal-content h1 {
+    text-align: center;
+    font-size: 28px;
+    color: whitesmoke;
+    padding-bottom: 10px;
+}
+
 
 #addForm {
     text-align: center;
@@ -220,7 +229,6 @@ li .btnElementLi #newBtnMark {
     font-size: 30px;
     font-weight: bold;
 }
-
 
 @media screen and (min-width: 768px) {
     #myModal {
