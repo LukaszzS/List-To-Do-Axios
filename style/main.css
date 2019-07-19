@@ -80,13 +80,12 @@ body {
     background: #81481E;
     margin-right: 60px;
     border-radius: 5px;
+    overflow: hidden;
     font-size: 18px;
     letter-spacing: 2px;
     -webkit-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
-
-    overflow: hidden;
 }
 
 #myHeader.header button:focus {
@@ -128,17 +127,14 @@ li .btnElementLi button {
 }
 
 li .btnElementLi #newBtnDelete {
-    /*width: 46px;*/
     width: auto;
 }
 
 li .btnElementLi #newBtnEdit {
-    /*width: 35px;*/
     width: auto;
 }
 
 li .btnElementLi #newBtnMark {
-    /*width: 88px;*/
     width: auto;
 }
 
@@ -233,10 +229,12 @@ li .btnElementLi #newBtnMark {
     font-size: 30px;
     font-weight: bold;
 }
+
 @media screen and (min-width: 599px) {
     #list li {
         flex-direction: unset;
     }
+
     li .btnElementLi button {
         margin-bottom: unset;
     }
@@ -252,17 +250,16 @@ li .btnElementLi #newBtnMark {
     }
 
     li .btnElementLi #newBtnDelete {
-        width: 60px;
+        width: auto;
     }
 
     li .btnElementLi #newBtnEdit {
-        width: 50px;
+        width: auto;
     }
 
     li .btnElementLi #newBtnMark {
-        width: 115px;
+        width: auto;
     }
-
 }
 
 @media screen and (min-width: 992px) {
