@@ -1,7 +1,7 @@
-let list, button, myInput, myModal, popupInput, closeBtn;
+let list, buttonAdd, myInput, myModal, popupInput, closeBtn;
 let index = 0;
 let currentTodo = 0;
-const initialList = ['opłacić rachunki', 'ortopeda - wizyta', 'karnet - siłownia '];
+const initialList = ['rachunki', 'ortopeda', 'siłownia '];
 
 function main() {
     searchForElements();
@@ -11,7 +11,7 @@ function main() {
 
 function searchForElements() {
     list = document.getElementById('list');
-    button = document.getElementById('addTodo');
+    buttonAdd = document.getElementById('addTodo');
     myInput = document.getElementById('myInput');
     myModal = document.getElementById('myModal');
     popupInput = document.getElementById('popupInput');
@@ -19,7 +19,7 @@ function searchForElements() {
 }
 
 function prepareDOMEvents() {
-    button.addEventListener('click', toggleElementClick);
+    buttonAdd.addEventListener('click', joinElementClick);
     list.addEventListener('click', listClickManager);
     myModal.addEventListener('click', myModalClickManager);
 }
@@ -30,7 +30,7 @@ function prepareInitialList() {
     });
 }
 
-function toggleElementClick() {
+function joinElementClick() {
     if (myInput.value.trim()) {
         addNewElementToList(myInput.value);
     }
@@ -62,10 +62,10 @@ function createButtons(btnElementLi) {
     let newBtnEdit = document.createElement('button');
     newBtnEdit.id = 'newBtnEdit';
     newBtnEdit.innerHTML = 'Edit';
-    // <i class="fas fa-check-circle"></i>';
     let newBtnMark = document.createElement('button');
     newBtnMark.id = 'newBtnMark';
     newBtnMark.innerHTML = 'Mark as Done';
+    newBtnMark.style.overflow = 'visible';
 
     btnElementLi.appendChild(newBtnDelete);
     btnElementLi.appendChild(newBtnEdit);

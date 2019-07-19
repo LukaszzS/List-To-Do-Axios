@@ -86,7 +86,7 @@ body {
     -moz-box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
     box-shadow: 8px 7px 7px 2px rgba(0, 0, 0, 0.75);
 
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #myHeader.header button:focus {
@@ -98,7 +98,6 @@ body {
     background: whitesmoke;
 }
 
-/*section --------------- list*/
 #list {
     width: 80%;
     margin: 30px auto 0 auto;
@@ -108,17 +107,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
     min-height: 5vh;
-    padding: 0 10px;
-    margin-top: 3px;
+    padding: 0 5px 4px 5px;
+    margin-top: 4px;
     -webkit-box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
     -moz-box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
     box-shadow: 11px 10px 14px -10px rgba(0, 0, 0, 0.59);
+    font-size: 22px;
 }
 
 li .btnElementLi button {
     font-size: 12px;
     margin-left: 2px;
+    margin-bottom: 2px;
     background: #B9DFF6;
     border-radius: 3px;
     border: none;
@@ -126,7 +128,7 @@ li .btnElementLi button {
 }
 
 li .btnElementLi #newBtnDelete {
-    width: 50px;
+    width: 46px;
 }
 
 li .btnElementLi #newBtnEdit {
@@ -134,9 +136,8 @@ li .btnElementLi #newBtnEdit {
 }
 
 li .btnElementLi #newBtnMark {
-    width: 87px;
+    width: 88px;
 }
-
 
 #list li:nth-child(even) {
     background: #212F3C;
@@ -175,13 +176,13 @@ li .btnElementLi #newBtnMark {
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .modal-content h1 {
     text-align: center;
     font-size: 28px;
     color: whitesmoke;
     padding-bottom: 10px;
 }
-
 
 #addForm {
     text-align: center;
@@ -228,6 +229,14 @@ li .btnElementLi #newBtnMark {
     color: black;
     font-size: 30px;
     font-weight: bold;
+}
+@media screen and (min-width: 599px) {
+    #list li {
+        flex-direction: unset;
+    }
+    li .btnElementLi button {
+        margin-bottom: unset;
+    }
 }
 
 @media screen and (min-width: 768px) {
