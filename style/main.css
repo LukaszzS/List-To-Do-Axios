@@ -30,7 +30,7 @@ body {
 .header-add i {
     padding-left: 10px;
     margin-right: 5px;
-    color: #81481E;
+    color: white;
 }
 
 #myHeader.header input {
@@ -55,17 +55,17 @@ body {
 }
 
 #myHeader.header input::-webkit-input-placeholder {
-    color: #81481E;
+    color: white;
     font-size: 18px;
 }
 
 #myHeader.header input::-moz-placeholder {
-    color: #5FA6D6;
+    color: white;
     font-size: 18px;
 }
 
 #myHeader.header input:-ms-input-placeholder {
-    color: #5FA6D6;
+    color: white;
     font-size: 18px;
 }
 
@@ -231,6 +231,10 @@ li .btnElementLi #newBtnMark {
 }
 
 @media screen and (min-width: 599px) {
+    .header-add i {
+        color: white;
+    }
+
     #list li {
         flex-direction: unset;
     }
@@ -241,6 +245,10 @@ li .btnElementLi #newBtnMark {
 }
 
 @media screen and (min-width: 768px) {
+    .header-add i {
+        color: #81481E;
+    }
+
     #myModal {
         width: 40%;
     }
@@ -259,6 +267,18 @@ li .btnElementLi #newBtnMark {
 
     li .btnElementLi #newBtnMark {
         width: auto;
+    }
+
+    #myHeader.header input::-webkit-input-placeholder {
+        color: #81481E;
+    }
+
+    #myHeader.header input::-moz-placeholder {
+        color: #81481E;
+    }
+
+    #myHeader.header input:-ms-input-placeholder {
+        color: #81481E;
     }
 }
 

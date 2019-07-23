@@ -19,9 +19,10 @@ function searchForElements() {
 }
 
 function prepareDOMEvents() {
-    buttonAdd.addEventListener('click', joinElementClick);
+    buttonAdd.addEventListener('click', addElementClick);
     list.addEventListener('click', listClickManager);
     myModal.addEventListener('click', myModalClickManager);
+    myInput.addEventListener('keyup', addElementEnter);
 }
 
 function prepareInitialList() {
@@ -30,11 +31,17 @@ function prepareInitialList() {
     });
 }
 
-function joinElementClick() {
+function addElementClick() {
     if (myInput.value.trim()) {
         addNewElementToList(myInput.value);
     }
 }
+function addElementEnter(eventObject) {
+    if(eventObject.keyCode === 13) {
+        addNewElementToList(myInput.value);
+    }
+}
+
 
 function addNewElementToList(todo) {
     let btnElementLi = document.createElement('div');
