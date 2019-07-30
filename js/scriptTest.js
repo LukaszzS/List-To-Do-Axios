@@ -2,6 +2,8 @@ let list, buttonAdd, myInput, myModal, popupInput, closeBtn;
 
 let elTodoId;
 
+let editInputPopup;
+
 // const BASE_URL = 'http://195.181.210.249:3000/todo/';
 
 let index = 0;
@@ -32,7 +34,7 @@ function prepareDOMEvents() {
     myInput.addEventListener('keyup', addElementEnter);
 }
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++GET+++++ OK ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 async function getTodos() {
     list.innerHTML = '';
@@ -56,7 +58,7 @@ async function addElementClick() {
         await sendTodo(myInput.value);
     }
 }
-//++++++++++++++++++++++++++++++++POST
+//++++++++++++++++++++++++++++++++POST++++++ OK +++++++++++++++++++++++++++++++
 async function sendTodo(value) {
     let data = await axios.post('http://195.181.210.249:3000/todo/', {
         title: value,
@@ -133,27 +135,15 @@ function listClickManager(eventObject) {
 }
 
 
-// +++++++++++++++++++++++++DELETE+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++DELETE+++++ OK ++++++++++++++++++++++++++++++++++++++++++++++++
 // function removeListElement(id) {
 //     list.removeChild(document.querySelector('#' + id));
 // }
 
-//usuwanie el
-
 async function removeListElement(id) {
     await axios.delete('http://195.181.210.249:3000/todo/' + id)
-        .then(()=>{
-            list.innerHTML = '';
-            prepareInitialList()
-        });
+    document.getElementById(id).remove();
 }
-//
-// async function deleteTodo(elementId){
-//     await axios.delete('http://195.181.210.249:3000/todo/' + elementId).remove();
-//     addNewElementToList(list);
-// }
-
-
 
 // ++++++++++++++++++++++EDIT+++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -176,20 +166,22 @@ async function removeListElement(id) {
 //         })
 // }
 
-async function editListElement(value) {
-    let data = await axios.put('http://195.181.210.249:3000/todo/',{
-        title: value,
-        author: 'Lukasz'
-    });
-    if (data.data.status === 0){
-        await getTodos();
-    }
-}
+// async function editListElement(value) {
+//     let data = await axios.put('http://195.181.210.249:3000/todo/',{
+//         title: value,
+//         author: 'Lukasz'
+//     });
+//     if (data.data.status === 0){
+//         await getTodos();
+//     }
+// }
 
+// async function acceptChangeHandler() {
+//     let newText =
+// }
 
-
-
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// FILTROWANIE TODO po autorach_______________________________________-------------------------_________________
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
