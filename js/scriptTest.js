@@ -1,21 +1,13 @@
 let list, buttonAdd, myInput, myModal, popupInput, closeBtn;
-
-let elTodoId;
-
-let editInputPopup;
-
-// const BASE_URL = 'http://195.181.210.249:3000/todo/';
-
 let index = 0;
 let currentTodo = 0;
-const initialList = ['rachunki', 'ortopeda', 'siłownia '];
+
+const BASE_URL = 'http://195.181.210.249:3000/todo/';
 
 function main() {
     searchForElements();
     prepareDOMEvents();
-    prepareInitialList();
     getTodos();
-
 }
 
 function searchForElements() {
@@ -34,22 +26,11 @@ function prepareDOMEvents() {
     myInput.addEventListener('keyup', addElementEnter);
 }
 
-// +++++++++++++++++++++++++GET+++++ OK ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 async function getTodos() {
     list.innerHTML = '';
-    let res = await axios.get('http://195.181.210.249:3000/todo/');
-
+    let res = await axios.get(BASE_URL);
     res.data.forEach(el => {
         addNewElementToList(el.title, el.id, el.extra);
-    });
-
-
-}
-
-function prepareInitialList() {
-    initialList.forEach(todo => {
-        addNewElementToList(todo);
     });
 }
 
@@ -58,47 +39,42 @@ async function addElementClick() {
         await sendTodo(myInput.value);
     }
 }
-//++++++++++++++++++++++++++++++++POST++++++ OK +++++++++++++++++++++++++++++++
+
 async function sendTodo(value) {
-    let data = await axios.post('http://195.181.210.249:3000/todo/', {
+    let data = await axios.post(BASE_URL, {
         title: value,
-        author: 'Lukasz'
+        author: 'LukaszS'
     });
-    if (data.data.status === 0){
+    if (data.data.status === 0) {
         await getTodos();
     }
 }
+
 async function addElementEnter(eventObject) {
-    let data = await axios.post('http://195.181.210.249:3000/todo/', {
-        title: value,
-        author: 'Lukasz'
-    });
     if (eventObject.keyCode === 13) {
+        let data = await axios.post(BASE_URL, {
+            title: myInput.value,
+            author: 'LukaszS'
+        });
         addNewElementToList(myInput.value);
     }
 }
 
-// function addElementEnter(eventObject) {
-//     if (eventObject.keyCode === 13) {
-//         addNewElementToList(myInput.value);
-//     }
-// }
-
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-function addNewElementToList(todo) {
+function addNewElementToList(todo, id, extra) {
     let btnElementLi = document.createElement('div');
     btnElementLi.className = 'btnElementLi';
-
     let newElement = document.createElement('li');
-    newElement.id = 'todo' + ++index;
+    newElement.id = id;
+    newElement.setAttribute('data-id', id);
+
+    if (extra) {
+        newElement.classList.add("done");
+    }
 
     let textNode = document.createTextNode(todo);
     let textNodeClass = document.createElement('div');
     textNodeClass.className = 'textNodeClass';
     textNodeClass.appendChild(textNode);
-
     newElement.appendChild(textNodeClass);
     createButtons(btnElementLi);
     newElement.appendChild(btnElementLi);
@@ -109,7 +85,6 @@ function createButtons(btnElementLi) {
     let newBtnDelete = document.createElement('button');
     newBtnDelete.id = 'newBtnDelete';
     newBtnDelete.innerHTML = 'Delete';
-
     let newBtnEdit = document.createElement('button');
     newBtnEdit.id = 'newBtnEdit';
     newBtnEdit.innerHTML = 'Edit';
@@ -117,7 +92,6 @@ function createButtons(btnElementLi) {
     newBtnMark.id = 'newBtnMark';
     newBtnMark.innerHTML = 'Mark as Done';
     newBtnMark.style.overflow = 'visible';
-
     btnElementLi.appendChild(newBtnDelete);
     btnElementLi.appendChild(newBtnEdit);
     btnElementLi.appendChild(newBtnMark);
@@ -134,57 +108,16 @@ function listClickManager(eventObject) {
     }
 }
 
-
-// +++++++++++++++++++++++++DELETE+++++ OK ++++++++++++++++++++++++++++++++++++++++++++++++
-// function removeListElement(id) {
-//     list.removeChild(document.querySelector('#' + id));
-// }
-
 async function removeListElement(id) {
-    await axios.delete('http://195.181.210.249:3000/todo/' + id)
+    await axios.delete(BASE_URL + id);
     document.getElementById(id).remove();
 }
 
-// ++++++++++++++++++++++EDIT+++++++++++++++++++++++++++++++++++++++++++++++
-
-// ------------------- PUT -------------------------------
-
-// function editListElement(id) {
-//     let todo = document.querySelector('#' + id + ' .textNodeClass');
-//     popupInput.value = todo.innerText;
-//     currentTodo = id;
-// }
-
-
-// async function editListElement() {
-//     await axios.put('http://195.181.210.249:3000/todo/' + id, {
-//         description: status
-//     })
-//         .then(function () {
-//             list.innerHTML = '';
-//             getTodos()
-//         })
-// }
-
-// async function editListElement(value) {
-//     let data = await axios.put('http://195.181.210.249:3000/todo/',{
-//         title: value,
-//         author: 'Lukasz'
-//     });
-//     if (data.data.status === 0){
-//         await getTodos();
-//     }
-// }
-
-// async function acceptChangeHandler() {
-//     let newText =
-// }
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// FILTROWANIE TODO po autorach_______________________________________-------------------------_________________
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+function editListElement(id) {
+    let todo = document.querySelector('li[data-id="' + id + '"] .textNodeClass');
+    popupInput.value = todo.innerText;
+    currentTodo = id;
+}
 
 function myModalClickManager(eventObject) {
     console.log(eventObject.target);
@@ -198,10 +131,17 @@ function myModalClickManager(eventObject) {
     }
 }
 
-function acceptChangeHandler() {
-    let todo = document.querySelector('#' + currentTodo + ' .textNodeClass');
+async function acceptChangeHandler() {
+    let todo = document.querySelector('li[data-id="' + currentTodo + '"] .textNodeClass');
     todo.innerText = popupInput.value;
-    closePopup();
+    let data = await axios.put(BASE_URL + currentTodo, {
+        title: popupInput.value,
+        author: 'LukaszS',
+    });
+    if (data.data.status === 0) {
+        await getTodos();
+        closePopup();
+    }
 }
 
 function openPopup() {
@@ -213,28 +153,16 @@ function closePopup() {
     popupInput.value = '';
 }
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// ------------------------ POST marks as done----------------------------------------
-// function markElementAsDone(id) {
-//     let newBtnMark = document.getElementById(id);
-//     newBtnMark.classList.toggle("done");
-//
-// }
-
 async function markElementAsDone(id) {
-    let newBtnMark = document.getElementById(id);
-    newBtnMark.classList.toggle("done");
-    await axios.post('http://195.181.210.249:3000/todo/' + id, {
-        author: 'Lukasz'
+    let todo = document.getElementById(id);
+    let data = await axios.put(BASE_URL + id, {
+        extra: todo.classList.contains("done") ? null : "done",
+        author: "LukaszS"
     });
+    todo.classList.toggle("done");
+    if (data.data.status === 0) {
+        await getTodos();
+    }
 }
 
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', main);
-
