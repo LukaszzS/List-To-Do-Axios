@@ -8,8 +8,6 @@ const BASE_URL = "http://195.181.210.249:3000/todo/";
 function main() {
   searchForElements();
   prepareDOMEvents();
-  getTodos();
-
   prepareInitialList();
 }
 
@@ -29,22 +27,17 @@ function prepareDOMEvents() {
   myInput.addEventListener("keyup", addElementEnter);
 }
 
-// filtr
 async function prepareInitialList() {
-  let res = await axios.get(BASE_URL);
-  let filter = res.data.filter(element => {
-    return element.author === author;
-  });
-  filter.forEach(el => {
-    addNewElementToList(el.title, el.id, el.extra);
-    // getTodos(el.title, el.id, el.extra);
-  });
+  await getTodos();
 }
 
 async function getTodos() {
   list.innerHTML = "";
   let res = await axios.get(BASE_URL);
-  res.data.forEach(el => {
+  let filter = res.data.filter(element => {
+    return element.author === author;
+  });
+  filter.forEach(el => {
     addNewElementToList(el.title, el.id, el.extra);
   });
 }
@@ -58,7 +51,7 @@ function addElementClick() {
 async function sendTodo(value) {
   let data = await axios.post(BASE_URL, {
     title: value,
-    author: "author"
+    author: author
   });
   if (data.data.status === 0) {
     await getTodos();
@@ -67,11 +60,7 @@ async function sendTodo(value) {
 
 async function addElementEnter(eventObject) {
   if (eventObject.keyCode === 13) {
-    let data = await axios.post(BASE_URL, {
-      title: myInput.value,
-      author: "author"
-    });
-    addNewElementToList(myInput.value);
+    await sendTodo(myInput.value);
   }
 }
 
@@ -153,7 +142,7 @@ async function acceptChangeHandler() {
   todo.innerText = popupInput.value;
   let data = await axios.put(BASE_URL + currentTodo, {
     title: popupInput.value,
-    author: "author"
+    author: author
   });
   if (data.data.status === 0) {
     await getTodos();
@@ -174,7 +163,7 @@ async function markElementAsDone(id) {
   let todo = document.getElementById(id);
   let data = await axios.put(BASE_URL + id, {
     extra: todo.classList.contains("done") ? null : "done",
-    author: "author"
+    author: author
   });
   todo.classList.toggle("done");
   if (data.data.status === 0) {
